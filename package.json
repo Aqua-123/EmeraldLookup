@@ -1,0 +1,42 @@
+{
+  "name": "emeraldlookup",
+  "version": "1.0.0",
+  "description": "EmeraldChat WebSocket client",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node --experimental-specifier-resolution=node dist/index.js",
+    "dev": "tsc-watch --onSuccess \"node --experimental-specifier-resolution=node dist/index.js\"",
+    "api": "node --experimental-specifier-resolution=node dist/api/server.js",
+    "start:all": "concurrently \"yarn start\" \"yarn api\"",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^22.14.1",
+    "axios": "^1.8.4",
+    "cheerio": "^1.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2",
+    "openai": "^4.95.1",
+    "puppeteer": "^24.6.1",
+    "ts-node": "^10.9.2",
+    "tsc-watch": "^6.2.1",
+    "typescript": "^5.8.3",
+    "ws": "^8.18.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "@types/ws": "^8.18.1",
+    "@typescript-eslint/eslint-plugin": "^8.31.0",
+    "@typescript-eslint/parser": "^8.31.0",
+    "concurrently": "^9.1.2",
+    "eslint": "^9.25.1"
+  }
+}
