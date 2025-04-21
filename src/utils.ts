@@ -2,7 +2,10 @@ import axios from "axios";
 import * as cheerio from "cheerio";
 import fs from "fs";
 
-export const config = JSON.parse(fs.readFileSync("config.json", "utf-8"));
+export const config = JSON.parse(fs.readFileSync("./config.json", "utf-8")) as {
+  main_cookie: string;
+  origin: string;
+};
 
 /**
  * Gets WebSocket URL from the Emerald Chat web page
