@@ -43,6 +43,7 @@ export async function getMessages(req: Request, res: Response): Promise<void> {
     const page = Math.floor(params.offset! / params.limit!) + 1;
     const totalPages = Math.ceil(total / params.limit!);
 
+    console.log(data);
     // Return response with pagination metadata
     res.json({
       data,

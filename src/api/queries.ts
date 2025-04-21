@@ -120,8 +120,25 @@ export async function getMessageStats(
         // Messages per room
         roomStats: [
           {
+            $addFields: {
+              parsed_identifier: {
+                $function: {
+                  body: function (identifier: string) {
+                    try {
+                      return JSON.parse(identifier);
+                    } catch (e) {
+                      return { room_id: null };
+                    }
+                  },
+                  args: ["$data.identifier"],
+                  lang: "js",
+                },
+              },
+            },
+          },
+          {
             $group: {
-              _id: "$data.identifier.room_id",
+              _id: "$parsed_identifier.room_id",
               count: { $sum: 1 },
             },
           },
@@ -157,6 +174,8 @@ export async function getMessageStats(
   ] as any[];
 
   const result = await ChatEvent.aggregate(pipeline);
+
+  console.log(result[0].roomStats);
 
   // Transform the results to a more friendly format
   const stats = {
