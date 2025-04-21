@@ -2,6 +2,10 @@
 
 This application provides a WebSocket client for EmeraldChat along with a powerful REST API to query and analyze chat data.
 
+![image](./docs/img1.png)
+![image](./docs/img2.png)
+![image](./docs/img3.png)
+![image](./docs/img4.png)
 ## Setup
 
 1. Install dependencies:
